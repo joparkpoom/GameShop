@@ -5,12 +5,13 @@ use App\Http\Controllers\UserAuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function (): void {
+    Route::view('/', 'welcome')->name('guest.home');
     Route::get('/login', [UserAuthController::class, 'showLoginForm'])->name('user.login');
     Route::post('/login', [UserAuthController::class, 'login'])->name('user.login.submit');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function (): void {
-    Route::get('/', [UserAuthController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('/dashboard', [UserAuthController::class, 'dashboard'])->name('user.dashboard');
     Route::post('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
 });
 

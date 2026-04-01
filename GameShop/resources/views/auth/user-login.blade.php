@@ -6,19 +6,18 @@
     <title>User Login — GameShop</title>
     @vite(['resources/css/app.css'])
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
+<body class="min-h-screen bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 flex items-center justify-center px-4">
 
     <div class="w-full max-w-md">
 
         {{-- Logo / Brand --}}
         <div class="text-center mb-8">
             <img src="{{ asset('storage/image/game_shop.png') }}" alt="GameShop Logo" class="mx-auto h-16 w-auto">
-            {{-- <h1 class="mt-3 text-3xl font-bold text-white tracking-tight">GameShop</h1> --}}
-            <p class="mt-1 text-slate-400 text-sm">Sign in to your account</p>
+            <p class="mt-1 text-zinc-500 text-sm">Restricted access — users only</p>
         </div>
 
         {{-- Card --}}
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl px-8 py-10">
+        <div class="bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl px-8 py-10">
 
             @if ($errors->any())
                 <div class="mb-6 flex items-start gap-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm rounded-lg px-4 py-3">
@@ -32,26 +31,26 @@
 
                 {{-- Email --}}
                 <div>
-                    <label for="email" class="block text-sm font-medium text-slate-300 mb-1.5">Email address</label>
+                    <label for="email" class="block text-sm font-medium text-zinc-300 mb-1.5">Email address</label>
                     <input
                         id="email" type="email" name="email"
                         value="{{ old('email') }}"
                         required autofocus
-                        class="w-full rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400
-                               px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                        class="w-full rounded-lg bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500
+                               px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent
                                transition @error('email') border-red-500 @enderror"
-                        placeholder="you@example.com"
+                        placeholder="admin@example.com"
                     >
                 </div>
 
                 {{-- Password --}}
                 <div>
-                    <label for="password" class="block text-sm font-medium text-slate-300 mb-1.5">Password</label>
+                    <label for="password" class="block text-sm font-medium text-zinc-300 mb-1.5">Password</label>
                     <input
                         id="password" type="password" name="password"
                         required
-                        class="w-full rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400
-                               px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent
+                        class="w-full rounded-lg bg-zinc-800 border border-zinc-700 text-white placeholder-zinc-500
+                               px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent
                                transition"
                         placeholder="••••••••"
                     >
@@ -60,20 +59,22 @@
                 {{-- Remember me --}}
                 <div class="flex items-center">
                     <input id="remember" type="checkbox" name="remember" value="1"
-                           class="h-4 w-4 rounded border-slate-600 bg-slate-700 text-indigo-500 focus:ring-indigo-500">
-                    <label for="remember" class="ml-2 text-sm text-slate-400">Remember me</label>
+                           class="h-4 w-4 rounded border-zinc-700 bg-zinc-800 text-amber-500 focus:ring-amber-500">
+                    <label for="remember" class="ml-2 text-sm text-zinc-500">Remember me</label>
                 </div>
 
                 {{-- Submit --}}
                 <button
                     type="submit"
-                    class="w-full py-2.5 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700
-                           text-white font-semibold text-sm transition focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-800"
+                    class="w-full py-2.5 px-4 rounded-lg bg-amber-500 hover:bg-amber-400 active:bg-amber-600
+                           text-zinc-900 font-semibold text-sm transition focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-zinc-900"
                 >
-                    Sign in
+                    Sign in as Admin
                 </button>
             </form>
         </div>
+
+        <p class="mt-6 text-center text-xs text-zinc-600">GameShop Admin &copy; {{ date('Y') }}</p>
     </div>
 
 </body>
